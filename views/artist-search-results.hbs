@@ -1,0 +1,24 @@
+<h1>Search results for: {{this.queryString}}</h1>
+
+<div class="card-list">
+    {{#each artists}}
+        <section class="card artist">
+
+            {{!-- display first available image only --}}
+            {{#each this.images}}
+                {{#if @first}}
+                    <img src="{{this.url}}" />
+                {{/if}}
+            {{else}}
+                <img src="https://via.placeholder.com/640/eee/eee?text=img" />
+            {{/each}}
+
+            <header>
+                <h2>{{this.name}}</h2>
+                {{this.followers.total}} followers
+            </header>
+
+            <a class="btn" href="/albums/{{this.id}}">View albums</a>
+        </section>
+    {{/each}}
+</div>
